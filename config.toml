@@ -23,7 +23,7 @@ home = [ "HTML", "RSS", "JSON"]
 
 [Languages]
 [Languages.en]
-title = "AWS System Manager"
+title = "workshop"
 weight = 1
 languageName = "Tiếng Việt"
 
@@ -32,3 +32,5 @@ name = "<i class='fab fa-facebook'></i> AWS Study Group"
 identifier = "AWS Study Group FB"
 url = "https://www.facebook.com/groups/awsstudygroupfcj/"
 weight = 20
+
+baseURL = "https://heahaidu.github.io/"

@@ -55,13 +55,13 @@ Giải pháp sử dụng **AWS Network Firewall** (managed firewall + IDS/IPS) k
 
 ## Giới thiệu
 
-Amazon Elastic VMware Service (Amazon EVS) giúp các tổ chức **di chuyển (migrate), vận hành và mở rộng (scale)** các workload VMware **một cách “native” trên AWS**. Dịch vụ cung cấp môi trường **VMware Cloud Foundation (VCF)** hoạt động trực tiếp trong **Amazon Virtual Private Cloud (Amazon VPC)** của bạn trên các **Amazon EC2 bare-metal instances**. Nhờ đó, khách hàng có thể tăng tốc migrate lên cloud và rời data center mà **không cần refactor** các ứng dụng hiện có.
+[Amazon Elastic VMware Service (Amazon EVS)](https://aws.amazon.com/evs/) giúp các tổ chức **di chuyển (migrate), vận hành và mở rộng (scale)** các workload VMware **một cách cục bộ trên AWS**. Dịch vụ cung cấp môi trường [VMware Cloud Foundation (VCF)](https://techdocs.broadcom.com/us/en/vmware-cis/vcf/vcf-5-2-and-earlier/5-2/getting-started-with-vcf-5-2/natively-integrated-stack.html) hoạt động trực tiếp trong [Amazon Virtual Private Cloud (Amazon VPC)](https://aws.amazon.com/vpc/) của bạn trên các [Amazon EC2 bare-metal instances](https://aws.amazon.com/ec2/). Nhờ đó, khách hàng có thể tăng tốc migrate lên cloud và rời data center mà **không cần refactor** các ứng dụng hiện có.
 
 Với các khách hàng cân nhắc kiến trúc hybrid cloud, cần có một giải pháp bảo mật mạng thống nhất để bảo vệ lưu lượng ứng dụng đi qua các môi trường Amazon EVS, các Amazon VPC, data center on-premises và internet. Giải pháp này cũng cần cung cấp **một điểm điều khiển duy nhất** cho việc quản lý policy tường lửa, **logging** và **monitoring** tập trung nhằm đơn giản hóa vận hành bảo mật mạng.
 
-**AWS Network Firewall** là dịch vụ tường lửa được quản lý (managed) kết hợp **phát hiện/ngăn chặn xâm nhập (IDS/IPS)**, có thể đáp ứng các yêu cầu trên. Dựa trên hạ tầng do AWS quản lý, dịch vụ tự động scale theo nhu cầu lưu lượng, đồng thời duy trì **tính sẵn sàng cao** và hiệu năng ổn định. AWS Network Firewall cung cấp quản lý policy tập trung và kiểm tra lưu lượng (traffic inspection) trên nhiều VPC và nhiều tài khoản AWS. Ngoài ra, dịch vụ cung cấp khả năng quan sát và báo cáo toàn diện thông qua việc thu thập log về **Amazon Simple Storage Service (Amazon S3)**, **Amazon CloudWatch Logs** hoặc **Amazon Data Firehose**.
+[AWS Network Firewall](https://aws.amazon.com/network-firewall/) là dịch vụ tường lửa được quản lý (managed) kết hợp **phát hiện/ngăn chặn xâm nhập (IDS/IPS)**, có thể đáp ứng các yêu cầu trên. Dựa trên hạ tầng do AWS quản lý, dịch vụ tự động scale theo nhu cầu lưu lượng, đồng thời duy trì **tính sẵn sàng cao** và hiệu năng ổn định. AWS Network Firewall cung cấp quản lý policy tập trung và kiểm tra lưu lượng (traffic inspection) trên nhiều VPC và nhiều tài khoản AWS. Ngoài ra, dịch vụ cung cấp khả năng quan sát và báo cáo toàn diện thông qua việc thu thập log về [Amazon Simple Storage Service (Amazon S3)](https://aws.amazon.com/s3/), [Amazon CloudWatch Logs](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.html) hoặc [Amazon Data Firehose](https://aws.amazon.com/firehose/).
 
-Trong bài viết này, chúng tôi trình bày cách sử dụng AWS Network Firewall để bảo mật môi trường Amazon EVS, dựa trên kiến trúc kiểm tra tập trung (centralized inspection) áp dụng cho: EVS cluster, các VPC, on-premises và internet. Bài viết sẽ đi qua các bước triển khai kiến trúc này bằng AWS Network Firewall và AWS Transit Gateway.
+Trong bài viết này, chúng tôi trình bày cách sử dụng AWS Network Firewall để bảo mật môi trường Amazon EVS, dựa trên kiến trúc kiểm tra tập trung (centralized inspection) áp dụng cho: EVS cluster, các VPC, on-premises và internet. Bài viết sẽ đi qua các bước triển khai kiến trúc này bằng AWS Network Firewall và [AWS Transit Gateway](https://aws.amazon.com/transit-gateway/).
 
 ---
 
@@ -73,9 +73,9 @@ Sơ đồ sau minh họa tổng quan kiến trúc mô hình kiểm tra tập tru
 
 ![Hình 1: Bảo mật Amazon EVS với AWS Network Firewall theo kiến trúc kiểm tra tập trung](/images/ARCHBLOG-1250-Figure1.png)
 
-Môi trường Amazon EVS được triển khai trực tiếp bên trong VPC của khách hàng (tức **EVS VPC**), bao gồm các **EVS VLAN subnet** tạo thành **underlay network** cho triển khai VCF. Hạ tầng này cung cấp kết nối cho các mạng **NSX overlay**, quản trị host, **vMotion** và **vSAN**. **Amazon VPC Route Server** cho phép định tuyến động giữa underlay network và overlay network. Để biết thêm, tham khảo mục *Concepts and components of Amazon EVS* trong tài liệu.
+Môi trường Amazon EVS được triển khai trực tiếp bên trong VPC của khách hàng (tức EVS VPC), bao gồm các [EVS VLAN subnet](https://docs.aws.amazon.com/evs/latest/userguide/concepts.html#concepts-evs-network) tạo thành underlay network cho triển khai VCF. Hạ tầng này cung cấp kết nối cho các mạng NSX overlay, quản trị host, [vMotion](https://blogs.vmware.com/cloud-foundation/2019/07/09/the-vmotion-process-under-the-hood/) và [vSAN](https://www.vmware.com/products/cloud-infrastructure/vsan). [Amazon VPC Route Server](https://docs.aws.amazon.com/vpc/latest/userguide/dynamic-routing-route-server.html) cho phép định tuyến động giữa underlay network và overlay network. Để biết thêm, tham khảo mục [Concepts and components of Amazon EVS](https://docs.aws.amazon.com/evs/latest/userguide/concepts.html) trong tài liệu.
 
-Kiến trúc cũng bao gồm một workload VPC tiêu chuẩn (tức **VPC01**), và một **Direct Connect Gateway** kết nối tới data center on-premises thông qua một kết nối **AWS Direct Connect**. Chúng tôi sử dụng một **egress VPC** chuyên dụng với **NAT gateway** để tập trung egress ra internet, và một **ingress VPC** riêng với **Application Load Balancer (ALB)** để terminate lưu lượng web ingress và điều hướng luồng quay về các dịch vụ đích.
+Kiến trúc cũng bao gồm một workload VPC tiêu chuẩn (tức VPC01), và một [Direct Connect Gateway](https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-gateways-intro.html) kết nối tới data center on-premises thông qua một kết nối [AWS Direct Connect](https://aws.amazon.com/directconnect/). Chúng tôi sử dụng một egress VPC chuyên dụng với [NAT gateway](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html) để tập trung egress ra internet, và một ingress VPC riêng với [Application Load Balancer (ALB)](https://aws.amazon.com/elasticloadbalancing/application-load-balancer/) để terminate lưu lượng web ingress và điều hướng luồng quay về các dịch vụ đích.
 
 Với kiến trúc này, có thể kiểm tra các mẫu luồng lưu lượng sau:
 
@@ -93,13 +93,13 @@ Kiến trúc kiểm tra tập trung mang lại các lợi ích:
 - Tăng cường thực thi rule trên hạ tầng AWS, tài nguyên on-premises và internet
 - Logging và monitoring tập trung
 
-Trong demo này, chúng tôi dùng khả năng **tích hợp native giữa AWS Network Firewall và AWS Transit Gateway** để đơn giản hóa việc triển khai và quản trị tường lửa. Với **native firewall attachment**, AWS tự động provision và quản lý các tài nguyên VPC cần thiết, giúp giảm overhead vận hành (không phải tự quản subnets, route tables và firewall endpoints trong inspection VPC).
+Trong demo này, chúng tôi dùng khả năng [tích hợp native giữa AWS Network Firewall và AWS Transit Gateway](https://aws.amazon.com/about-aws/whats-new/2025/07/aws-network-firewall-native-transit-gateway-support/) để đơn giản hóa việc triển khai và quản trị tường lửa. Với **native firewall attachment**, AWS tự động provision và quản lý các tài nguyên VPC cần thiết, giúp giảm overhead vận hành (không phải tự quản subnets, route tables và firewall endpoints trong inspection VPC).
 
 ---
 
 ## Điều kiện tiên quyết
 
-Bài viết giả định bạn đã quen thuộc với: **AWS Command Line Interface (AWS CLI)**, **Amazon VPC**, **Amazon EC2**, **NAT gateway**, **Application Load Balancer**, **Internet gateway**, **AWS Direct Connect**, **AWS Transit Gateway** và nền tảng **VMware VCF**.
+Bài viết giả định bạn đã quen thuộc với: [AWS Command Line Interface (AWS CLI)](https://aws.amazon.com/cli/), Amazon VPC, Amazon EC2, NAT gateway, Application Load Balancer, [Internet gateway](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Internet_Gateway.html#vpc-igw-internet-access), AWS Direct Connect, AWS Transit Gateway và nền tảng VMware VCF.
 
 Các điều kiện tiên quyết cần có để hoàn thành giải pháp này:
 
@@ -310,10 +310,6 @@ Talha Kalim có hơn 10 năm kinh nghiệm về hạ tầng doanh nghiệp và g
 - [Original Article](https://aws.amazon.com/blogs/architecture/secure-amazon-elastic-vmware-service-amazon-evs-with-aws-network-firewall/): Bài viết gốc
 - [AWS Architecture Blog](https://aws.amazon.com/blogs/architecture/): Chuyên trang kiến trúc của AWS
 
-### Tài liệu tiếng Việt / cộng đồng (gợi ý)
-- [AWS Việt Nam (trang chủ)](https://aws.amazon.com/vi/): Thông tin AWS tại Việt Nam
-- [AWS re:Post](https://repost.aws/): Hỏi đáp kỹ thuật (có cộng đồng người dùng Việt)
-
 ### Tools và Services
 - [AWS Network Firewall – Developer Guide](https://docs.aws.amazon.com/network-firewall/latest/developerguide/what-is-aws-network-firewall.html): Mô tả service & hướng dẫn cấu hình
 - [AWS Transit Gateway – Documentation](https://docs.aws.amazon.com/vpc/latest/tgw/what-is-transit-gateway.html): Tổng quan & hướng dẫn
@@ -323,31 +319,10 @@ Talha Kalim có hơn 10 năm kinh nghiệm về hạ tầng doanh nghiệp và g
 
 ---
 
-## 💬 Ghi chú của người dịch
-
-- **Thuật ngữ nhất quán**: mình giữ nguyên tên dịch vụ (Amazon EVS, AWS Network Firewall, Transit Gateway…) và Việt hóa các khái niệm chung như *route table* (bảng định tuyến), *attachment* (kết nối/attachment), *inspection* (kiểm tra/soi lưu lượng).
-- **Hình ảnh (Figure 1–11)**: nội dung bạn gửi không kèm URL ảnh, vì vậy mình để đúng caption và chèn placeholder để bạn đưa ảnh từ bài gốc vào.
-- **Chi tiết “bảng route table” ở Bước 5**: bản text bạn cung cấp không hiển thị bảng (có thể do copy/paste), phần dịch giữ nguyên ý và mô tả theo bullet đúng như bài.
-- **Đường dẫn log group**: bài có nhắc `/anfw-centralized/anfw01/alert` nhưng phần kiểm thử lại dẫn `/aws/network-firewall/alert/`. Mình dịch nguyên văn, khi triển khai thực tế bạn nên đối chiếu theo log group bạn cấu hình.
-
-### Challenges trong quá trình dịch
-- **Technical Terms**: các cặp underlay/overlay, east–west/north–south, appliance mode… cần dịch “thoáng” nhưng vẫn giữ đúng nghĩa, mình ưu tiên dịch kèm thuật ngữ gốc trong ngoặc khi cần.
-- **Complex Concepts**: phần TGW route tables (pre/post inspection) dễ nhầm chiều lưu lượng, mình giữ chặt ý “đẩy vào firewall trước, trả về đích sau”.
-
-### Insights gained
-- **Technical Learning**: mô hình “centralized inspection” với TGW native integration giúp giảm vận hành (ít phải tự dựng inspection VPC endpoints/subnets).
-- **Industry Knowledge**: EVS + VPC Route Server + NSX routing (BGP) là điểm quan trọng để đưa overlay routes “đi được” ra hạ tầng AWS.
-
----
-
 ## 🤝 Đóng góp và Feedback
 
 Bài dịch này được thực hiện trong khuôn khổ **FCJ Internship Program**.
 
-**📧 Liên hệ**: [nguyenhaiduong20004@gmail.com]  
+**📧 Liên hệ**: nguyenhaiduong20004@gmail.com   
 **💬 Feedback**: Mọi góp ý để cải thiện chất lượng dịch thuật xin gửi về email trên  
 **🔄 Updates**: Bài dịch sẽ được cập nhật dựa trên feedback từ cộng đồng
-
----
-
-*© 2026 - Bản dịch thuộc về Nguyễn Hải Dương. Vui lòng credit khi sử dụng.*

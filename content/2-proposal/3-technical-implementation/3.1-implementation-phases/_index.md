@@ -95,12 +95,18 @@ CloudFormation chịu trách nhiệm tạo và cấu hình:
 
 Giai đoạn này loại bỏ cấu hình thủ công và giảm rủi ro triển khai.
   
-[Template CloudFormation](https://github.com/Heahaidu/interest-project/blob/main/infra.json)
+[Template CloudFormation](/5/infra.json)
+
+> Để xem toàn bộ quá quy trình triển khai bạn có thể xem qua tại [Workshop](../../../5-workshop/)
 
 ---
 
 🎬 **CloudFormation Demo Video**  
-▶️ [Watch](video/03-Technical-Implementation/CloudFormation.mp4)
+<iframe width="100%" height="400"
+  src="https://www.youtube.com/embed/7qCpdv-Eq_k?si=KrOnWcZW5hHqHsqr"
+  frameborder="0"
+  allowfullscreen>
+</iframe>
 
 ---
 

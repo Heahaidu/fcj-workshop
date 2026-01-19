@@ -9,25 +9,23 @@ chapter : false
 ## Đánh giá chung
 
 ### 1. Môi trường làm việc
-Môi trường làm việc tại FCJ rất thân thiện và cởi mở, tạo điều kiện tốt để thực tập sinh học hỏi và phát triển. Các thành viên luôn sẵn sàng hỗ trợ khi gặp khó khăn, kể cả khi đó là những câu hỏi cơ bản. Không khí làm việc vừa nghiêm túc vừa thoải mái, giúp tôi tự tin hơn khi đặt câu hỏi hoặc chia sẻ ý kiến.
+Môi trường làm việc tại FCJ rất thân thiện và cởi mở, tạo điều kiện tốt để thực tập sinh học hỏi và phát triển. Các thành viên luôn sẵn sàng hỗ trợ khi gặp khó khăn, kể cả khi đó là những câu hỏi cơ bản.
 
-Đặc biệt, việc được tiếp cận với các workshop AWS thực tế và làm dự án nhóm đã giúp tôi hiểu rõ hơn về quy trình làm việc bán chuyên nghiệp.
+Đặc biệt, việc được tiếp cận với các workshop AWS thực tế và làm dự án nhóm đã giúp em hiểu rõ hơn về quy trình làm việc.
 
 ### 2. Sự hỗ trợ của mentor / team admin
-Mentor hướng dẫn rất tận tâm và chi tiết. Thay vì chỉ đưa ra đáp án, mentor thường hướng dẫn cách tư duy để giải quyết vấn đề, khuyến khích tôi tự tìm hiểu và thử nghiệm trước. Điều này giúp tôi học được cách debug, tra docs và tự giải quyết vấn đề - những kỹ năng rất quan trọng trong thực tế.
-
-Team admin hỗ trợ rất tốt về mặt tài liệu, hướng dẫn các workshop, và tạo điều kiện để tôi làm việc thuận lợi. Các tài liệu workshop được viết rõ ràng, dễ theo dõi, và có link tham khảo đầy đủ.
+Team admin hỗ trợ rất tốt về mặt tài liệu, hướng dẫn các workshop, và tạo điều kiện để em làm việc thuận lợi. Các tài liệu workshop được viết rõ ràng, dễ theo dõi, và có link tham khảo đầy đủ.
 
 ### 3. Sự phù hợp giữa công việc và chuyên ngành học
-Công việc được giao rất phù hợp với chuyên ngành Công nghệ thông tin mà tôi học ở trường, đồng thời mở rộng sang nhiều lĩnh vực mà trường chưa dạy:
-- **Cloud Computing & DevOps:** Trước đây tôi chỉ biết lý thuyết, giờ được thực hành triển khai thực tế trên AWS.
+Công việc được giao rất phù hợp với chuyên ngành Công nghệ thông tin mà em học ở trường, đồng thời mở rộng sang nhiều lĩnh vực mà trường chưa dạy:
+- **Cloud Computing & DevOps:** Trước đây em chỉ biết lý thuyết, giờ được thực hành triển khai thực tế trên AWS.
 - **Microservices Architecture:** Hiểu được cách thiết kế hệ thống phân tán, database per service, message queue.
 - **CI/CD Pipeline:** Học được cách tự động hóa deploy và quản lý infrastructure as code.
 
-Những kiến thức về cơ sở dữ liệu, lập trình backend (Spring Boot), frontend (NextJS) mà tôi học ở trường được áp dụng trực tiếp vào dự án. Nhờ vậy, tôi vừa củng cố nền tảng, vừa mở rộng kỹ năng mới.
+Những kiến thức về cơ sở dữ liệu, lập trình backend (Spring Boot), frontend (NextJS) mà em học ở trường được áp dụng trực tiếp vào dự án. Nhờ vậy, em vừa củng cố nền tảng, vừa mở rộng kỹ năng mới.
 
 ### 4. Cơ hội học hỏi & phát triển kỹ năng
-Trong 12 tuần thực tập, tôi học được rất nhiều:
+Trong 12 tuần thực tập, em học được rất nhiều:
 
 **Kỹ năng kỹ thuật:**
 - AWS services: EC2, VPC, RDS, S3, CloudFront, ECS, ALB, CloudFormation, IAM...
@@ -42,7 +40,7 @@ Trong 12 tuần thực tập, tôi học được rất nhiều:
 - **Tự học:** Đọc docs, troubleshoot, research solution khi gặp vấn đề mới.
 - **Quản lý thời gian:** Cân bằng giữa workshop, dự án nhóm, và fix bug.
 
-Đặc biệt, việc được làm dự án từ đầu đến cuối (từ thiết kế database, phát triển API, deploy lên AWS) giúp tôi hiểu toàn bộ quy trình phát triển phần mềm thực tế.
+Đặc biệt, việc được làm dự án từ đầu đến cuối (từ thiết kế database, phát triển API, deploy lên AWS) giúp em hiểu toàn bộ quy trình phát triển phần mềm thực tế.
 
 ### 5. Văn hóa & tinh thần đồng đội
 Văn hóa làm việc tại FCJ rất tích cực và hỗ trợ lẫn nhau. Mọi người tôn trọng ý kiến của nhau, sẵn sàng giúp đỡ khi có thành viên gặp khó khăn. Khi dự án gặp vấn đề, cả team cùng nhau debug và tìm solution.
@@ -51,11 +49,11 @@ Ngoài ra các anh chị trong team sẵn sàng giải thích thêm hoặc share
 
 ### 6. Chính sách / phúc lợi cho thực tập sinh
 Công ty tạo điều kiện rất tốt cho thực tập sinh:
-- **Workshop chất lượng:** Các workshop AWS được biên soạn kỹ lưỡng, có hướng dẫn từng bước và link docs đầy đủ (Một số workshop chưa được update theo version mới nhất của AWS, nhưng tôi coi đó là tính năng chứ không phải là lỗi, từ đó có thể hiểu hơn về lab tôi đang thực hiện nhờ tự tìm hiểu và fix bug).
+- **Workshop chất lượng:** Các workshop AWS được biên soạn kỹ lưỡng, có hướng dẫn từng bước và link docs đầy đủ (Một số workshop chưa được update theo version mới nhất của AWS, nhưng em coi đó là tính năng chứ không phải là lỗi, từ đó có thể hiểu hơn về lab em đang thực hiện nhờ tự tìm hiểu và fix bug).
 - **Thời gian linh hoạt:** Có thể thảo luận và điều chỉnh timeline khi cần thiết.
 - **Học liệu:** Được chia sẻ tài liệu, blog, và best practices.
 
-Nếu có thể, tôi mong muốn:
+Nếu có thể, em mong muốn:
 - Có thêm các workshop về các chủ đề nâng cao (như Kubernetes, Lambda, hoặc Bedrock trên AWS).
 - Tổ chức thêm nhiều các buổi tech talk hoặc meetup do công ty tổ chức.
 
@@ -64,7 +62,7 @@ Nếu có thể, tôi mong muốn:
 ## Một số câu hỏi khác
 
 ### Điều bạn hài lòng nhất trong thời gian thực tập?
-Điều tôi hài lòng nhất là sự tiến bộ rõ rệt về kỹ năng. Ban đầu, tôi không tự tin về khả năng của tôi vì mỗi công nghệ chỉ biết một ít và chưa từng làm dự án thực tế. Nhưng qua 12 tuần, từ việc học các workshop AWS cơ bản, đến thiết kế database, phát triển API hay deploy hệ thống lên môi trường AWS.
+Điều em hài lòng nhất là sự tiến bộ rõ rệt về kỹ năng. Ban đầu, em không tự tin về khả năng của em vì mỗi công nghệ chỉ biết một ít và chưa từng làm dự án thực tế. Nhưng qua 12 tuần, từ việc học các workshop AWS cơ bản, đến thiết kế database, phát triển API hay deploy hệ thống lên môi trường AWS.
 
 ### Điều bạn nghĩ công ty cần cải thiện cho các thực tập sinh sau?
 
@@ -79,28 +77,30 @@ Chương trình thực tập đã được tổ chức rất tốt và đáp ứ
 - **Trải nghiệm làm dự án thực tế:** Được tự tay làm ra một project end-to-end.
 - **Nền tảng AWS vững chắc:** Sau thực tập/học hỏi, có thể tự tin áp dụng AWS vào các dự án khác.
 
-Tuy nhiên, tôi cũng sẽ nhắc họ rằng cần chủ động học hỏi và không ngại hỏi khi chưa hiểu vì có rất nhiều thứ mới và đôi khi khá nhiều thứ để học.
+Tuy nhiên, em cũng sẽ nhắc họ rằng cần chủ động học hỏi và không ngại hỏi khi chưa hiểu vì có rất nhiều thứ mới và đôi khi khá nhiều thứ để học.
 
 ---
 
 ## Đề xuất & mong muốn
 
 ### Bạn có đề xuất gì để cải thiện trải nghiệm trong kỳ thực tập?
-Hiện tại tôi không có đề xuất cần cải thiện thêm. Theo trải nghiệm của tôi, chương trình FCJ đã được tổ chức khá đầy đủ và hợp lý. Có workshop theo lộ trình, có mentor hỗ trợ, có tài liệu/checklist hướng dẫn và cơ hội được thực hành trên bài toán thực tế. Những gì tôi cần để học và làm hiệu quả thì chương trình đều đã có sẵn.
+Hiện tại em không có đề xuất cần cải thiện thêm. Theo trải nghiệm của tôi, chương trình FCJ đã được tổ chức khá đầy đủ và hợp lý. Có workshop theo lộ trình, có mentor hỗ trợ, có tài liệu/checklist hướng dẫn và cơ hội được thực hành trên bài toán thực tế. Những gì em cần để học và làm hiệu quả thì chương trình đều đã có sẵn.
 
 ### Bạn có muốn tiếp tục chương trình này trong tương lai?
-Có, tôi rất muốn có cơ hội:
+Có, em rất muốn có cơ hội:
 - Tiếp tục làm việc với các dự án phức tạp hơn.
 - Có thể tạo một network riêng.
 - Học thêm về các AWS services nâng cao.
 - Có thể đóng góp vào việc cải thiện workshop hoặc hướng dẫn các intern sau.
 
-### Góp ý khác (tự do chia sẻ):
-Tôi rất biết ơn FCJ đã tạo cơ hội cho tôi học hỏi và phát triển. Từ một người không tự tin về kỹ năng kỹ thuật, giờ tôi có thể tự tin triển khai một hệ thống microservices lên AWS, debug production issues, và làm việc nhóm hiệu quả.
+### Góp ý khác:
+Em rất biết ơn FCJ đã tạo cơ hội cho em học hỏi và phát triển. Từ một người không tự tin về kỹ năng kỹ thuật, giờ em có thể tự tin triển khai một hệ thống microservices lên AWS, debug production issues, và làm việc nhóm hiệu quả.
 
-Những kiến thức và kinh nghiệm tôi học được trong 12 tuần này sẽ là hành trang quý giá cho sự nghiệp sau này. tôi hy vọng FCJ sẽ tiếp tục phát triển chương trình thực tập này và tạo cơ hội cho nhiều bạn sinh viên khác.
+Những kiến thức và kinh nghiệm em học được trong 12 tuần này sẽ là hành trang quý giá cho sự nghiệp sau này. Em hy vọng FCJ sẽ tiếp tục phát triển chương trình thực tập này và tạo cơ hội cho nhiều bạn sinh viên khác.
 
-Cảm ơn team FCJ, mentor, và các bạn trong nhóm đã đồng hành cùng tôi trong suốt thời gian qua!
+Nhưng trong quá trình thực tập có một số thông báo không được đồng bộ giữa các nhóm khiến em khá hoang mang trong quá trình thực tập, và đã sảy ra vài chuyện không mong muốn, có thể do không đọc kỹ toàn bộ nội dung trước khi thực tập và cũng một phần ngại đặt câu hỏi với anh chị admin/master/mentor.
+
+Cảm ơn team FCJ, mentor, và các bạn trong nhóm đã đồng hành cùng em trong suốt thời gian qua!
 
 ---
 

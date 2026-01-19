@@ -31,7 +31,7 @@ chapter : false
 | 5 | - Fix mixed content do FE HTTPS gọi BE HTTP bằng HTTPS endpoint tạm qua API Gateway<br>- Cập nhật FE base API URL sang HTTPS<br>- Fix SPA routing bằng CloudFront Function rewrite về index.html | 25/12/2025 | 25/12/2025 |  |
 | 6 | - Kiểm thử các luồng login register list events event detail create event registration notification<br>- Ghi bug theo bước tái hiện expected result và mức độ<br>- Tách lỗi FE và BE theo log và status code<br>- Chỉnh UI login register popup gồm layout validation loading error | 26/12/2025 | 26/12/2025 |  |
 | 7 | - Viết proposal báo cáo gồm mục tiêu phạm vi kiến trúc FE BE CI deploy và rủi ro<br>- Chuẩn hóa checklist deploy rollback theo tầng CloudFormation ECR ECS ALB DB | 27/12/2025 | 27/12/2025 |  |
-| CN | - Hoàn thiện workshop| 28/12/2025 | 28/12/2025 |  |
+| CN | - Hoàn thiện workshop| 28/12/2025 | 09/01/2026 |  |
 
 ---
 
